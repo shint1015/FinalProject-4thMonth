@@ -1,1 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Climate+Crisis&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+@import 'tailwindcss';
 
+:root {
+    /* Mobile (default) */
+    --fs-display: 2.5rem; /* 40px */
+    --fs-h1: 2.25rem; /* 36px */
+    --fs-h2: 2rem; /* 32px */
+    --fs-h3: 1.75rem; /* 28px */
+    --fs-h4: 1.5rem; /* 24px */
+    --fs-title: 1.25rem; /* 20px */
+    --fs-subtitle: 1.125rem; /* 18px */
+    --fs-body: 1rem; /* 16px */
+    --fs-subbody: 0.875rem; /* 14px */
+    --fs-detail: 0.75rem; /* 12px */
+}
+
+@media (min-width: 768px) {
+    :root {
+        /* Desktop */
+        --fs-display: 4.5rem; /* 72px */
+        --fs-h1: 3.5rem; /* 56px */
+        --fs-h2: 3rem; /* 48px */
+        --fs-h3: 2.5rem; /* 40px */
+        --fs-h4: 2.25rem; /* 36px */
+        --fs-title: 2rem; /* 32px */
+        --fs-subtitle: 1.5rem; /* 24px */
+        --fs-body: 1.25rem; /* 20px */
+        --fs-subbody: 1.125rem; /* 18px */
+        --fs-detail: 1rem; /* 16px */
+    }
+}
+
+@theme {
+    --color-primary-yellow: #e7ec5c;
+    --color-secondary-yellow: #e0e389;
+    --color-primary-black: #060606;
+    --color-dark-gray: #a7a6a6;
+    --color-light-gray: #d9d9d9;
+    --color-primary-white: #f8f8f8;
+    --font-climate-crisis: 'Climate Crisis', sans-serif;
+    --font-dm-sans: 'DM Sans', sans-serif;
+    --text-display: var(--fs-display);
+    --text-h1: var(--fs-h1);
+    --text-h2: var(--fs-h2);
+    --text-h3: var(--fs-h3);
+    --text-h4: var(--fs-h4);
+    --text-title: var(--fs-title);
+    --text-subtitle: var(--fs-subtitle);
+    --text-body: var(--fs-body);
+    --text-subbody: var(--fs-subbody);
+    --text-detail: var(--fs-detail);
+}
+
+@layer base {
+    body {
+        @apply font-dm-sans;
+    }
+}
