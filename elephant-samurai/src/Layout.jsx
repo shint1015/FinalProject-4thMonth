@@ -9,7 +9,7 @@ const Layout = ({ children }) => {
                     <Link to='/'>Home</Link> | <Link to='/test'>Test</Link>
                 </nav>
             </header>
-            <main className='bg-white'>{children}</main>
+            <main>{children}</main>
             <footer>Footer</footer>
         </div>
     )
