@@ -38,6 +38,7 @@ import UserEdit from '@/pages/admin/user/Edit.jsx'
 
 import { redirect } from '@tanstack/react-router'
 
+import LoginPage from '@/pages/LoginPage.jsx'
 const rootRoute = createRootRoute({
     component: () => (
         <Layout>
@@ -217,6 +218,11 @@ const userEditRoute = createRoute({
     component: () => <UserEdit />,
 })
 
+const loginRoute = createRoute({
+    getParentRoute: () => rootRoute,
+    path: '/login',
+    component: () => <LoginPage />,
+})
 const routeTree = rootRoute.addChildren([
     indexRoute,
     aboutRoute,
