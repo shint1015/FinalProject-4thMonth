@@ -2,7 +2,7 @@ import HeroSectionVideo from "@/assets/video/HeroSection.webm"
 import Location from '@/assets/img/Location.png';
 
 function LocationPhoto() {
-  return <img src={Location} alt="Location" className="w-[50%] h-[50%]"/>;
+  return <img src={Location} alt="Location" className="lg:w-[50%]"/>;
 }
 
 export default function Home() {
@@ -15,7 +15,7 @@ export default function Home() {
               <h1 className="text-primary-yellow text-display">
                 SAMURAI
               </h1>
-              <h1 className="mt-[-30px] text-primary-yellow text-display">
+              <h1 className="mt-[-1rem] text-primary-yellow text-display">
                 ELEPHANT
               </h1>
               <p className="text-primary-yellow text-title">
@@ -25,7 +25,7 @@ export default function Home() {
           </div>
 
           {/* Upcoming event */}
-          <div className="p-[80px]">
+          <div className="p-[2rem] sm:p-[3rem] lg:p-[5rem]">
             <h1 className="text-primary-yellow text-h1">
               UPCOMING EVENT
             </h1>
@@ -35,7 +35,7 @@ export default function Home() {
 
           {/* History */}
           <div className="relative w-full h-[550px] bg-cover bg-[image:var(--bg-history)] flex justify-center">
-            <div className="p-[80px] flex justify-center flex-col text-center w-[55%]">
+            <div className="p-[5rem] flex justify-center flex-col text-center lg:w-[55%]">
               <h4 className="text-primary-yellow text-h4">
                 SINCE 1995,
               </h4>
@@ -50,13 +50,13 @@ export default function Home() {
 
 
           {/* Location */}
-           <div className="p-[80px]">
+           <div className="p-[2rem] sm:p-[3rem] lg:p-[5rem]">
             <h1 className="text-primary-yellow text-h1">
                 FIND US HERE
             </h1>
-            <div className="mt-4 flex flex-row gap-[80px] justify-center items-center">
+            <div className="mt-4 flex flex-col sm:flex-col lg:flex-row gap-[2rem] sm:gap-[3rem] lg:gap-[5rem] justify-center items-center">
               <LocationPhoto/>
-              <div className="w-[40%]">
+              <div className="lg:w-[40%]">
                 <p className="text-primary-white text-body">
                   The Sumarai Elephant Studio theater is located in the heart of downtown Vancouver at 111 Hollywood Street.<br></br>
                   There are several parking lots within walking distance from the theatre in addition to meter parking on Daiki St. & Shin St.
