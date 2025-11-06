@@ -9,7 +9,7 @@ import Layout from './Layout.jsx'
 import Home from './pages/Home.jsx'
 import About from './pages/About.jsx'
 import ContactUS from './pages/ContactUs.jsx'
-
+import LoginPage from '@/pages/LoginPage.jsx'
 const rootRoute = createRootRoute({
     component: () => (
         <Layout>
@@ -34,20 +34,26 @@ const testRoute = createRoute({
 const aboutRoute = createRoute({
     getParentRoute: () => rootRoute,
     path: '/about',
-    component: () => <About/>,
+    component: () => <About />,
 })
 
 const contactUsRoute = createRoute({
     getParentRoute: () => rootRoute,
     path: '/contact',
-    component: () => <ContactUS/>,
+    component: () => <ContactUS />,
 })
 
+const loginRoute = createRoute({
+    getParentRoute: () => rootRoute,
+    path: '/login',
+    component: () => <LoginPage />,
+})
 const routeTree = rootRoute.addChildren([
     indexRoute,
     testRoute,
     aboutRoute,
-    contactUsRoute
+    contactUsRoute,
+    loginRoute,
 ])
 
 export const router = createRouter({

@@ -5,10 +5,13 @@ import './index.css'
 import router from './route'
 import { RouterProvider } from '@tanstack/react-router'
 import { TanStackRouterDevtools } from '@tanstack/router-devtools'
+import { AuthProvider } from '@/hook/useAuth'
 
 createRoot(document.getElementById('root')).render(
     <StrictMode>
-        <RouterProvider router={router} />
-        <TanStackRouterDevtools router={router} />
+        <AuthProvider>
+            <RouterProvider router={router} />
+            <TanStackRouterDevtools router={router} />
+        </AuthProvider>
     </StrictMode>
 )
