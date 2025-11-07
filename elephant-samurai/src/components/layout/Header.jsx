@@ -72,22 +72,38 @@ export default function Header() {
             >
                 <ul className='flex flex-col space-y-4 items-center'>
                     <li className=''>
-                        <Link to='/' className='text-primary-white hover:text-primary-gray'>
+                        <Link
+                            to='/'
+                            onClick={toggleMobileMenu}
+                            className='text-primary-white hover:text-primary-gray'
+                        >
                             Home
                         </Link>
                     </li>
                     <li>
-                        <Link to='/show' className='text-primary-white hover:text-primary-gray'>
+                        <Link
+                            to='/show'
+                            onClick={toggleMobileMenu}
+                            className='text-primary-white hover:text-primary-gray'
+                        >
                             Show
                         </Link>
                     </li>
                     <li>
-                        <Link to='/about' className='text-primary-white hover:text-primary-gray'>
+                        <Link
+                            to='/about'
+                            onClick={toggleMobileMenu}
+                            className='text-primary-white hover:text-primary-gray'
+                        >
                             About
                         </Link>
                     </li>
                     <li>
-                        <Link to='/contact' className='text-primary-white hover:text-primary-gray'>
+                        <Link
+                            to='/contact'
+                            onClick={toggleMobileMenu}
+                            className='text-primary-white hover:text-primary-gray'
+                        >
                             Contact Us
                         </Link>
                     </li>
