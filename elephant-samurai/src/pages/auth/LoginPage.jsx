@@ -1,7 +1,9 @@
 import login_background from '@/assets/img/login_background.png'
 import LoginForm from '@/components/auth/LoginForm.jsx'
-
+import { useContext } from 'react'
+import { AuthContext } from '@/hook/useAuth.jsx'
 export default function LoginPage() {
+    const context = useContext(AuthContext)
     return (
         <div className='flex bg-primary-black'>
             <img className='w-[50%] object-cover' src={login_background} alt='Login Background' />

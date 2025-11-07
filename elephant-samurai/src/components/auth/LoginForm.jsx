@@ -1,10 +1,16 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useAuth } from '@/hook/useAuth'
-import { Link } from '@tanstack/react-router'
+import { Link, useNavigate } from '@tanstack/react-router'
 
 export default function LoginForm() {
     const [credentials, setCredentials] = useState({ email: '', password: '' })
-    const { signIn, isLoading, error, resetError } = useAuth()
+    const { signIn, isLoading, error, resetError, isAuthenticated } = useAuth()
+    const navigate = useNavigate()
+    useEffect(() => {
+        if (isAuthenticated) {
+            navigate({ to: '/' })
+        }
+    }, [isAuthenticated, navigate])
 
     const handleSubmit = async e => {
         e.preventDefault()

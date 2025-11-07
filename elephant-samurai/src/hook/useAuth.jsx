@@ -40,7 +40,6 @@ export function AuthProvider({ children }) {
 
         try {
             const result = await mockAPI.login(credentials.email, credentials.password)
-
             setCurrentUser(result.user)
             setAuthStatus('authenticated')
             localStorage.setItem('userToken', result.token)
@@ -76,6 +75,7 @@ export function AuthProvider({ children }) {
         signIn,
         signOut,
         resetError,
+        validateSession,
     }
 
     return <AuthContext.Provider value={contextValue}>{children}</AuthContext.Provider>
@@ -86,5 +86,12 @@ export function useAuth() {
     if (context === undefined) {
         throw new Error('useAuth must be used within AuthProvider')
     }
+    useEffect(() => {
+        const token = localStorage.getItem('userToken')
+        if (token && context.isAuthenticated) {
+            console.log('useAuth called - validating session...')
+            context.validateSession(token)
+        }
+    })
     return context
 }

@@ -9,7 +9,7 @@ import Layout from './Layout.jsx'
 import Home from './pages/Home.jsx'
 import About from './pages/About.jsx'
 import ContactUS from './pages/ContactUs.jsx'
-import LoginPage from '@/pages/LoginPage.jsx'
+import LoginPage from '@/pages/auth/LoginPage.jsx'
 const rootRoute = createRootRoute({
     component: () => (
         <Layout>
