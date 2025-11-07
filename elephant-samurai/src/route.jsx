@@ -10,6 +10,7 @@ import Home from './pages/Home.jsx'
 import About from './pages/About.jsx'
 import ContactUS from './pages/ContactUs.jsx'
 
+import ShowPage from './pages/ShowPage.jsx'
 const rootRoute = createRootRoute({
     component: () => (
         <Layout>
@@ -49,6 +50,13 @@ const routeTree = rootRoute.addChildren([
     aboutRoute,
     contactUsRoute
 ])
+const showRoute = createRoute({
+    getParentRoute: () => rootRoute,
+    path: '/shows',
+    component: () => <ShowPage />,
+})
+
+const routeTree = rootRoute.addChildren([indexRoute, testRoute, showRoute])
 
 export const router = createRouter({
     routeTree,
