@@ -6,7 +6,7 @@ const Layout = ({ children }) => {
             <header>
                 Header
                 <nav>
-                    <Link to='/'>Home</Link> | <Link to='/test'>Test</Link>
+                    <Link to='/'>Home</Link> | <Link to='/test'>Test</Link> | <Link to='/shows'>Shows</Link>
                 </nav>
             </header>
             <main className='bg-white'>{children}</main>

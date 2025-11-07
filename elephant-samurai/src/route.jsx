@@ -6,6 +6,7 @@ import {
     HeadContent,
 } from '@tanstack/react-router'
 import Layout from './Layout.jsx'
+import ShowPage from './pages/ShowPage.jsx'
 const rootRoute = createRootRoute({
     component: () => (
         <Layout>
@@ -27,7 +28,13 @@ const testRoute = createRoute({
     component: () => <div class='text-white'>Test Page</div>,
 })
 
-const routeTree = rootRoute.addChildren([indexRoute, testRoute])
+const showRoute = createRoute({
+    getParentRoute: () => rootRoute,
+    path: '/shows',
+    component: () => <ShowPage />,
+})
+
+const routeTree = rootRoute.addChildren([indexRoute, testRoute, showRoute])
 
 export const router = createRouter({
     routeTree,
