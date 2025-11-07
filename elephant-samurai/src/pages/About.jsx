@@ -18,10 +18,10 @@ export default function About() {
     return (
         <>
         {/* Hero section */}
-            <h1 className="text-primary-yellow text-h1 px-[2rem] sm:px-[3rem] lg:px-[5rem]">
+            <h1 className="mt-8 text-primary-yellow text-h1 px-[2rem] sm:px-[3rem] lg:px-[5rem]">
                 ABOUT US
             </h1>
-            <div className='p-[2rem] sm:p-[3rem] lg:p-[5rem] flex flex-col items-center'>
+            <div className='mt-4 px-[2rem] sm:px-[3rem] lg:px-[5rem] flex flex-col items-center'>
                 <HistoryPhoto/>
                 <p className="mt-8 w-[85%] text-primary-white text-body">
                 For more than twenty years, Samurai Elephant Studio Theatre has been a place where creativity meets passion. From our earliest productions to today, we have championed diverse voices and bold storytelling, bringing unforgettable experiences to audiences across Vancouver.            

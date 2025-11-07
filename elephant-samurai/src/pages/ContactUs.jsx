@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Plus from '@/assets/icon/plus.svg';
-import Close from '@/assets/icon/xmark.svg';
+import Minus from '@/assets/icon/Minus.svg';
 import Facebook from '@/assets/icon/FacebookLogo_white.svg';
 import Ig from '@/assets/icon/InstagramLogo_white.svg';
 import Tiktok from '@/assets/icon/TiktokLogo_white.svg';
@@ -42,7 +42,7 @@ export default function ContactUS() {
 
   return (
     <>
-      <h1 className="text-primary-yellow text-h1 px-[2rem] sm:px-[3rem] lg:px-[5rem]">
+      <h1 className="mt-8 text-primary-yellow text-h1 px-[2rem] sm:px-[3rem] lg:px-[5rem]">
         CONTACT US
       </h1>
 
@@ -56,7 +56,7 @@ export default function ContactUS() {
               <div key={i} className="py-4">
                 <button onClick={() => toggleFAQ(i)} className="w-full text-left text-primary-white text-body flex justify-between items-center">
                   {faq.question}
-                  <img src={openIndex === i ? Close : Plus} alt={openIndex === i ? "close" : "open"} className="w-6"/>
+                  <img src={openIndex === i ? Minus : Plus} alt={openIndex === i ? "close" : "open"} className="w-6"/>
                 </button>
                 
                 {openIndex === i && (
@@ -70,7 +70,7 @@ export default function ContactUS() {
         </div>
 
         {/* contact */}
-        <div className="lg:w-[30%] w-full">
+        <div className="lg:w-[30%] w-full mb-[5rem]">
             <p className="text-primary-yellow text-title">Contact Us</p>
 
             <form className="mt-4 flex flex-col gap-[1rem]">
@@ -80,11 +80,11 @@ export default function ContactUS() {
                 <button className="bg-primary-yellow text-black py-3 px-6 mt-4 rounded hover:bg-secondary-yellow text-subbody">Send</button>
             </form>
 
-            <div className="mt-4 flex flex-row gap-[0.5rem]">
-                <img src={Facebook} alt="Facebook" className="w-[1.5rem]"/>
-                <img src={Ig} alt="Instagram" className="w-[1.5rem]"/>
-                <img src={Tiktok} alt="Tiktok" className="w-[1.5rem]"/>
-                <img src={Xtwitter} alt="X" className="w-[1.5rem]"/>
+            <div className="mt-4 flex flex-row gap-[0.5rem] lg:gap-[0.75rem]">
+                <img src={Facebook} alt="Facebook" className="w-[1rem] lg:w-[1.5rem]"/>
+                <img src={Ig} alt="Instagram" className="w-[1rem] lg:w-[1.5rem]"/>
+                <img src={Tiktok} alt="Tiktok" className="w-[1rem] lg:w-[1.5rem]"/>
+                <img src={Xtwitter} alt="X" className="w-[1rem] lg:w-[1.5rem]"/>
             </div>
             <p className="mt-1 text-primary-white text-detail">+1(778)- 000-0000</p>
             <p className="text-primary-white text-detail">info@samuraielephant.com</p>

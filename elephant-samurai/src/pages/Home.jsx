@@ -9,9 +9,9 @@ export default function Home() {
     return (
         <>
             {/* Hero section */}
-          <div className="relative w-full h-full overflow-hidden">
+          <div className="relative w-full overflow-hidden">
             <video src={HeroSectionVideo} className="absolute  top-0 left-0 w-full h-full object-cover" autoPlay loop muted playsInline/>
-            <div className="relative w-[100dvw] h-[100dvh] flex flex-col items-center justify-center text-center">
+            <div className="relative w-[100dvw] h-[60dvh] sm:h-[60dvh] lg:h-[100dvh] flex flex-col items-center justify-center text-center">
               <h1 className="text-primary-yellow text-display">
                 SAMURAI
               </h1>
@@ -56,7 +56,7 @@ export default function Home() {
             </h1>
             <div className="mt-4 flex flex-col sm:flex-col lg:flex-row gap-[2rem] sm:gap-[3rem] lg:gap-[5rem] justify-center items-center">
               <LocationPhoto/>
-              <div className="lg:w-[40%]">
+              <div>
                 <p className="text-primary-white text-body">
                   The Sumarai Elephant Studio theater is located in the heart of downtown Vancouver at 111 Hollywood Street.<br></br>
                   There are several parking lots within walking distance from the theatre in addition to meter parking on Daiki St. & Shin St.
