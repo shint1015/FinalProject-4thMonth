@@ -11,12 +11,12 @@
     --color-primary-white: #f8f8f8;
     --font-climate-crisis: 'Climate Crisis', sans-serif;
     --font-dm-sans: 'DM Sans', sans-serif;
-    --bg-history : url('./src/assets/img/homepage_history.png')
+    --bg-history: url('./src/assets/img/homepage_history.png');
 }
 
 @layer base {
     body {
-        @apply bg-primary-black
+        @apply bg-primary-black;
     }
     /* if you want decide element style, you can write style like this */
     .text-display {
@@ -52,11 +52,10 @@
     }
 
     .text-subbody {
-        @apply font-dm-sans text-[0.75rem] sm:text-[0.875rem] lg:text-[1.125rem] ;
+        @apply font-dm-sans text-[0.75rem] sm:text-[0.875rem] lg:text-[1.125rem];
     }
 
     .text-detail {
         @apply font-dm-sans text-[0.625rem] sm:text-[0.75rem] lg:text-[1rem];
     }
-    
 }

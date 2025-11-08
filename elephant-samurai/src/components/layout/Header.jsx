@@ -6,12 +6,10 @@ import xmarkIcon from '@/assets/icon/xmark.svg'
 import { useContext } from 'react'
 import { AuthContext } from '@/hook/useAuth.jsx'
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
-import { UserCircle } from '@/assets/icon/UserCircle.svg'
+import UserCircle from '@/assets/icon/UserCircle.svg'
 
 export default function Header() {
     const { user, isAuthenticated, signOut } = useContext(AuthContext)
-    console.log('Header - isAuthenticated:', isAuthenticated)
-    console.log('Header - user:', user)
 
     const [isMobileMenuOpen, setMobileMenuOpen] = useState(undefined)
     const toggleMobileMenu = () => {
@@ -59,7 +57,7 @@ export default function Header() {
                 {isAuthenticated && user ? (
                     <>
                         {/* Profile dropdown */}
-                        <Menu as='div' className='relative ml-3'>
+                        <Menu as='div' className='relative ml-3 sm:block hidden'>
                             <MenuButton className='relative flex rounded-full focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-yellow'>
                                 <span className='absolute -inset-1.5' />
                                 <span className='sr-only'>Open user menu</span>
@@ -85,14 +83,6 @@ export default function Header() {
                                 <MenuItem>
                                     <a
                                         href='#'
-                                        className='block px-4 py-2 text-sm text-primary-white data-focus:bg-white/5 data-focus:outline-hidden'
-                                    >
-                                        Settings
-                                    </a>
-                                </MenuItem>
-                                <MenuItem>
-                                    <a
-                                        href='#'
                                         onClick={signOut}
                                         className='block px-4 py-2 text-sm text-primary-white data-focus:bg-white/5 data-focus:outline-hidden'
                                     >
@@ -104,22 +94,20 @@ export default function Header() {
                     </>
                 ) : (
                     <>
-                        <button className='button border border-primary-yellow text-primary-yellow py-2 px-4 rounded tracking-wider sm:block hidden'>
-                            Log in
-                        </button>
-                        <button
-                            id='hamburger-menu'
-                            className='sm:hidden block'
-                            onClick={toggleMobileMenu}
-                        >
-                            <img
-                                src={isMobileMenuOpen ? xmarkIcon : hamburgerMenuIcon}
-                                alt='Menu'
-                                className='h-7 sm:h-14'
-                            />
-                        </button>
+                        <Link to='/login'>
+                            <button className='button border border-primary-yellow text-primary-yellow py-2 px-4 rounded tracking-wider sm:block hidden'>
+                                Log in
+                            </button>
+                        </Link>
                     </>
                 )}
+                <button id='hamburger-menu' className='sm:hidden block' onClick={toggleMobileMenu}>
+                    <img
+                        src={isMobileMenuOpen ? xmarkIcon : hamburgerMenuIcon}
+                        alt='Menu'
+                        className='h-7 sm:h-14'
+                    />
+                </button>
             </div>
             <div
                 id='mobile-menu'
@@ -132,12 +120,13 @@ export default function Header() {
                           : 'animate-slide-out-top',
                 ].join(' ')}
             >
+                <div className='text-[1.25rem] p-3 text-center'>Main Menu </div>
                 <ul className='flex flex-col space-y-4 items-center'>
                     <li className=''>
                         <Link
                             to='/'
                             onClick={toggleMobileMenu}
-                            className='text-primary-white hover:text-primary-gray'
+                            className='text-primary-white hover:text-primary-yellow'
                         >
                             Home
                         </Link>
@@ -146,7 +135,7 @@ export default function Header() {
                         <Link
                             to='/show'
                             onClick={toggleMobileMenu}
-                            className='text-primary-white hover:text-primary-gray'
+                            className='text-primary-white hover:text-primary-yellow'
                         >
                             Show
                         </Link>
@@ -155,7 +144,7 @@ export default function Header() {
                         <Link
                             to='/about'
                             onClick={toggleMobileMenu}
-                            className='text-primary-white hover:text-primary-gray'
+                            className='text-primary-white hover:text-primary-yellow'
                         >
                             About
                         </Link>
@@ -164,11 +153,48 @@ export default function Header() {
                         <Link
                             to='/contact'
                             onClick={toggleMobileMenu}
-                            className='text-primary-white hover:text-primary-gray'
+                            className='text-primary-white hover:text-primary-yellow'
                         >
                             Contact Us
                         </Link>
                     </li>
+                </ul>
+                <div className='text-[1.25rem] mt-4 p-2 text-center'>Account</div>
+                <ul className='flex flex-col space-y-2 items-center'>
+                    {isAuthenticated && user ? (
+                        <>
+                            <li>
+                                <Link
+                                    to='/profile'
+                                    onClick={toggleMobileMenu}
+                                    className='text-primary-white hover:text-primary-yellow'
+                                >
+                                    Your Profile
+                                </Link>
+                            </li>
+                            <li>
+                                <button
+                                    onClick={() => {
+                                        signOut()
+                                        toggleMobileMenu()
+                                    }}
+                                    className='text-primary-white hover:text-primary-yellow'
+                                >
+                                    Sign Out
+                                </button>
+                            </li>
+                        </>
+                    ) : (
+                        <li>
+                            <Link
+                                to='/login'
+                                onClick={toggleMobileMenu}
+                                className='text-primary-white hover:text-primary-yellow text-center'
+                            >
+                                Log in
+                            </Link>
+                        </li>
+                    )}
                 </ul>
             </div>
         </header>

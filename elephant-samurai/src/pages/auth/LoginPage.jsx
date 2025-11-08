@@ -5,9 +5,13 @@ import { AuthContext } from '@/hook/useAuth.jsx'
 export default function LoginPage() {
     const context = useContext(AuthContext)
     return (
-        <div className='flex bg-primary-black'>
-            <img className='w-[50%] object-cover' src={login_background} alt='Login Background' />
-            <div className='w-[50%] py-40'>
+        <div className='flex bg-primary-black flex-wrap'>
+            <img
+                className='w-full sm:w-[50%] object-cover'
+                src={login_background}
+                alt='Login Background'
+            />
+            <div className='w-full sm:w-[50%] pb-10 sm:py-40'>
                 <LoginForm />
             </div>
         </div>

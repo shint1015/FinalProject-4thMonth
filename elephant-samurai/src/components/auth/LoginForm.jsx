@@ -17,6 +17,7 @@ export default function LoginForm() {
         const result = await signIn(credentials)
         if (result.success) {
             // Redirect or show success message
+            // TODO: toast notification
             console.log('Login successful!')
         }
     }
@@ -37,7 +38,7 @@ export default function LoginForm() {
             <form onSubmit={handleSubmit} className='flex flex-col gap-4 w-[70%] m-auto'>
                 {error && <div className='error-message'>{error}</div>}
                 <input
-                    className='bg-primary-white py-4 px-2.5 rounded shadow-md'
+                    className='bg-primary-white text-primary-black py-4 px-2.5 rounded shadow-md'
                     name='email'
                     type='email'
                     value={credentials.email}
@@ -46,7 +47,7 @@ export default function LoginForm() {
                     required
                 />
                 <input
-                    className='bg-primary-white py-4 px-2.5 rounded shadow-md'
+                    className='bg-primary-white text-primary-black py-4 px-2.5 rounded shadow-md'
                     name='password'
                     type='password'
                     value={credentials.password}

@@ -37,7 +37,6 @@ export function AuthProvider({ children }) {
     const signIn = async credentials => {
         setAuthStatus('loading')
         setAuthError(null)
-
         try {
             const result = await mockAPI.login(credentials.email, credentials.password)
             setCurrentUser(result.user)
@@ -62,6 +61,7 @@ export function AuthProvider({ children }) {
             setAuthStatus('unauthenticated')
             setAuthError(null)
             localStorage.removeItem('userToken')
+            // TODO: toast notification
         }
     }
 
