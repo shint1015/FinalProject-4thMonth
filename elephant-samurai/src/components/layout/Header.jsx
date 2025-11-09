@@ -3,14 +3,12 @@ import { useState } from 'react'
 import logo from '@/assets/img/Logo.svg'
 import hamburgerMenuIcon from '@/assets/icon/HamburgerMenu.svg'
 import xmarkIcon from '@/assets/icon/xmark.svg'
-import { useContext } from 'react'
-import { AuthContext } from '@/hook/useAuth.jsx'
+import { useAuth } from '@/hook/useAuth'
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
 import UserCircle from '@/assets/icon/UserCircle.svg'
 
 export default function Header() {
-    const { user, isAuthenticated, signOut } = useContext(AuthContext)
-
+    const { user, isAuthenticated, signOut } = useAuth()
     const [isMobileMenuOpen, setMobileMenuOpen] = useState(undefined)
     const toggleMobileMenu = () => {
         setMobileMenuOpen(prev => !prev)
@@ -159,8 +157,8 @@ export default function Header() {
                         </Link>
                     </li>
                 </ul>
-                <div className='text-[1.25rem] mt-4 p-2 text-center'>Account</div>
-                <ul className='flex flex-col space-y-2 items-center'>
+                <div className='text-[1.25rem] mt-4 p-3 text-center'>Account</div>
+                <ul className='flex flex-col space-y-4 items-center'>
                     {isAuthenticated && user ? (
                         <>
                             <li>
