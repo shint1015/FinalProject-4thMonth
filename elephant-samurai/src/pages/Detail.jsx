@@ -124,25 +124,3 @@ export default function ShowDetail() {
     </div>
   );
 }
-{/* VarList
-
-    --color-primary-yellow: #e7ec5c;
-    --color-secondary-yellow: #e0e389;
-    --color-primary-black: #060606;
-    --color-dark-gray: #a7a6a6;
-    --color-light-gray: #d9d9d9;
-    --color-primary-white: #f8f8f8;
-    --font-climate-crisis: 'Climate Crisis', sans-serif;
-    --font-dm-sans: 'DM Sans', sans-serif;
-    --text-display: 2.5rem; 40px
-    --text-h1: 2.25rem; 36px
-    --text-h2: 2rem; 32px
-    --text-h3: 1.75rem; 28px
-    --text-h4: 1.5rem; 24px
-    --text-title: 1.25rem; 20px 
-    --text-subtitle: 1.125rem; 18px 
-    --text-body: 1rem;  16px 
-    --text-subbody: 0.875rem;  14px 
-    --text-detail: 0.75rem; 12px 
-
-  */}
