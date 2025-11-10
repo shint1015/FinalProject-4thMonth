@@ -12,6 +12,7 @@ import ContactUS from '.@/pages/ContactUs.jsx'
 import LoginPage from '@/pages/auth/LoginPage.jsx'
 import ShowPage from '@/pages/ShowPage.jsx'
 import Detail from '@/pages/Detail.jsx' 
+import SelectingSeat from '@/pages/SelectingSeat.jsx'
 
 const rootRoute = createRootRoute({
     component: () => (
@@ -58,6 +59,7 @@ const loginRoute = createRoute({
     path: '/login',
     component: () => <LoginPage />,
 })
+
 const routeTree = rootRoute.addChildren([
     indexRoute,
     aboutRoute,
