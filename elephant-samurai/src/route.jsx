@@ -46,7 +46,7 @@ const contactUsRoute = createRoute({
 
 const SelectingSeatRoute = createRoute({
     getParentRoute: () => rootRoute,
-    path: '/Seat Selecting',
+    path: '/SeatSelecting',
     component: () => <SelectingSeat/>,
 })
 
