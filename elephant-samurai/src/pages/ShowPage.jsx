@@ -1,5 +1,8 @@
 import { useState, useEffect } from "react";
 import { Link } from "@tanstack/react-router";
+import ShowCard from "../components/common/ShowCard"; // component for each show card
+
+
 
 
 export default function ShowPage() {
@@ -7,7 +10,7 @@ export default function ShowPage() {
     const [searchTerm, setSearchTerm] = useState("");
     const [categoryFilter, setCategoryFilter] = useState(""); // category
     const [dateFilter, setDateFilter] = useState(""); // date
-    
+
     // fetch data
     useEffect(() => {
         fetch("/data/event.json")
@@ -39,7 +42,7 @@ export default function ShowPage() {
             !categoryFilter || show.category === categoryFilter;
 
         // dateFilter
-       
+
         const matchesDate =
             !dateFilter ||
             new Date(show.time).toISOString().split("T")[0] === dateFilter;
@@ -60,7 +63,7 @@ export default function ShowPage() {
             <div className="flex gap-2 w-full mx-[6em]">
                 {/* Search bar with icon */}
 
-                
+
                 <div className="flex gap-2 border-b border-primary-yellow pb-1 w-[25em]">
                     <img
                         src="/MagnifyingGlass.svg"
@@ -77,71 +80,37 @@ export default function ShowPage() {
                 </div>
 
                 <div className="flex gap-4 ml-[32em]">
-                {/* Date select */}
-                <input
-                    type="date"
-                    value={dateFilter}
-                    onChange={(e) => setDateFilter(e.target.value)}
-                    className="flex bg-primary-black border border-primary-yellow text-primary-white rounded-[10%] px-3 py-1 cursor-pointer focus:outline-none ml-auto"
-                />
+                    {/* Date select */}
+                    <input
+                        type="date"
+                        value={dateFilter}
+                        onChange={(e) => setDateFilter(e.target.value)}
+                        className="flex bg-primary-black border border-primary-yellow text-primary-white rounded-[10%] px-3 py-1 cursor-pointer focus:outline-none ml-auto"
+                    />
 
-                {/* Category select */}
-                <select
-                    value={categoryFilter}
-                    onChange={(e) => setCategoryFilter(e.target.value)}
-                    className="flex bg-primary-black border border-primary-yellow text-primary-white rounded-[10%] px-3 py-1 cursor-pointer focus:outline-none appearance-none"
-                >
-                    <option value="">Categories</option>
-                    {[...new Set(shows.map((show) => show.category))].map((category) => (
-                        <option key={category} value={category}>
-                            {category}
-                        </option>
-                    ))}
-                </select>
+                    {/* Category select */}
+                    <select
+                        value={categoryFilter}
+                        onChange={(e) => setCategoryFilter(e.target.value)}
+                        className="flex bg-primary-black border border-primary-yellow text-primary-white rounded-[10%] px-3 py-1 cursor-pointer focus:outline-none appearance-none"
+                    >
+                        <option value="">Categories</option>
+                        {[...new Set(shows.map((show) => show.category))].map((category) => (
+                            <option key={category} value={category}>
+                                {category}
+                            </option>
+                        ))}
+                    </select>
                 </div>
             </div>
 
-            {/* card part */}
+            {/* card part display */}
             <section className="grid grid-cols-1 lg:grid-cols-4 gap-8 lg:w-[85%] mx-auto">
                 {filteredShows.map((show) => (
-                    <div
-                        key={show.id}
-                        className="bg-primary-black rounded-xl overflow-hidden hover:bg-[#111] transition flex flex-col mt-10"
-                    >
-                        <Link
-                            to="/show/$showId"
-                            params={{ showId: show.id }}
-                            className="block"
-                        >
-                            <p className="text-primary-white text-body mb-1">{show.date}</p>
-                            <img
-                                src={show.image_url}
-                                alt={show.title}
-                                className="w-full h-80 object-cover"
-                            />
-                            <div className="p-4 font-dm-sans grow">
-                                <p className="text-sm text-light-gray">{show.category}</p>
-                                <h2 className="text-lg font-bold text-white mt-1 mb-3 leading-snug">
-                                    {show.title}
-                                </h2>
-                            </div>
-                        </Link>
-
-                        {/* button */}
-                        <div className="px-4 pb-4 mt-auto">
-                            <Link
-                                to="/show/$showId"
-                                params={{ showId: show.id }}
-                                className="block"
-                            >
-                                <button className="bg-primary-yellow text-black font-dm-sans py-2 px-4 rounded-md w-full hover:bg-yellow-300 transition">
-                                    Buy Tickets
-                                </button>
-                            </Link>
-                        </div>
-                    </div>
+                    <ShowCard key={show.id} show={show} />
                 ))}
             </section>
+
 
             {/* View More */}
             <div className="text-center mt-10">
