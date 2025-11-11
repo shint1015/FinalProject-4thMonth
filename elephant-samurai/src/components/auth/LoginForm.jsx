@@ -70,7 +70,14 @@ export default function LoginForm() {
                     type='submit'
                     disabled={isLoading}
                 >
-                    {isLoading ? 'Logging in...' : 'Log In'}
+                    {isLoading ? (
+                        <div className='flex gap-x-2 items-center justify-center'>
+                            <div className='w-6 h-6 border-4 border-black border-t-transparent rounded-full animate-spin'></div>
+                            Logging in...
+                        </div>
+                    ) : (
+                        'Log in'
+                    )}
                 </button>
             </form>
         </>

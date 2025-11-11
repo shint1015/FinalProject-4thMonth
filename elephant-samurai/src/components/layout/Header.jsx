@@ -93,7 +93,7 @@ export default function Header() {
                 ) : (
                     <>
                         <Link to='/login'>
-                            <button className='button border border-primary-yellow text-primary-yellow py-2 px-4 rounded tracking-wider sm:block hidden'>
+                            <button className='button border border-primary-yellow text-primary-yellow hover:bg-primary-yellow hover:text-primary-black py-2 px-4 rounded tracking-wider sm:block hidden'>
                                 Log in
                             </button>
                         </Link>
