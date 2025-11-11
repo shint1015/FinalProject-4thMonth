@@ -58,7 +58,7 @@ export default function Header() {
                         <Menu as='div' className='relative ml-3 sm:block hidden'>
                             <MenuButton className='relative flex rounded-full focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-yellow'>
                                 <span className='absolute -inset-1.5' />
-                                <span className='sr-only'>Open user menu</span>
+                                <span className='sr-only'>Open User Menu</span>
                                 <img
                                     alt='user profile'
                                     src={UserCircle}
@@ -72,19 +72,19 @@ export default function Header() {
                             >
                                 <MenuItem>
                                     <a
-                                        href='#'
+                                        type='button'
                                         className='block px-4 py-2 text-sm text-primary-white data-focus:bg-white/5 data-focus:outline-hidden'
                                     >
-                                        Your profile
+                                        Profile
                                     </a>
                                 </MenuItem>
                                 <MenuItem>
                                     <a
-                                        href='#'
+                                        type='button'
                                         onClick={signOut}
                                         className='block px-4 py-2 text-sm text-primary-white data-focus:bg-white/5 data-focus:outline-hidden'
                                     >
-                                        Sign out
+                                        Log Out
                                     </a>
                                 </MenuItem>
                             </MenuItems>
@@ -118,7 +118,7 @@ export default function Header() {
                           : 'animate-slide-out-top',
                 ].join(' ')}
             >
-                <div className='text-[1.25rem] p-3 text-center'>Main Menu </div>
+                <div className='text-[1.25rem] p-3 text-center'>Main Menu</div>
                 <ul className='flex flex-col space-y-4 items-center'>
                     <li className=''>
                         <Link
@@ -167,18 +167,19 @@ export default function Header() {
                                     onClick={toggleMobileMenu}
                                     className='text-primary-white hover:text-primary-yellow'
                                 >
-                                    Your Profile
+                                    Profile
                                 </Link>
                             </li>
                             <li>
                                 <button
+                                    type='button'
                                     onClick={() => {
                                         signOut()
                                         toggleMobileMenu()
                                     }}
                                     className='text-primary-white hover:text-primary-yellow'
                                 >
-                                    Sign Out
+                                    Log Out
                                 </button>
                             </li>
                         </>
