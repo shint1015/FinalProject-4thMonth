@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { Link } from "@tanstack/react-router";
 import ShowCard from "../components/common/ShowCard"; // component for each show card
 
 

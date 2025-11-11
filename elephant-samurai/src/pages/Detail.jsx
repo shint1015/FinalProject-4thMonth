@@ -49,8 +49,8 @@ export default function ShowDetail() {
         </div>
 
         {/* title */}
-        <div className="flex-1">
-          <h1 className="text-primary-yellow font-semibold text-title font-dm-sans tracking-widest mb-[-0.2em]">
+        <div className="flex-1 tracking-[1%]">
+          <h1 className="text-primary-yellow text-title text-detailTitle-weight mb-[-0.2em]">
             {show.title}
           </h1>
           <p className="text-light-gray text-subbody font-dm-sans mb-8">{show.category}</p>
