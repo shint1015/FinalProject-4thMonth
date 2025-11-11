@@ -28,13 +28,13 @@ export default function ShowPage() {
     const filteredShows = shows.filter((show) => {
         const lower = searchTerm.toLowerCase();
 
-        // searchTermによるフィルター
+        // search Term filter
         const matchesSearch =
             show.title.toLowerCase().includes(lower) ||
             show.category.toLowerCase().includes(lower) ||
             show.tags.some((tag) => tag.toLowerCase().includes(lower));
 
-        // categoryFilterによるフィルター（空文字なら無視）
+        // categoryFilter
         const matchesCategory =
             !categoryFilter || show.category === categoryFilter;
 
