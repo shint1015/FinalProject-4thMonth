@@ -32,11 +32,11 @@ export default function LoginForm() {
 
     return (
         <>
-            <h1 className='text-primary-yellow text-h1 text-center pb-3'>Log in</h1>
+            <h1 className='text-primary-yellow text-h1 text-center pb-3'>Log In</h1>
             <form onSubmit={handleSubmit} className='flex flex-col gap-4 w-[70%] m-auto'>
                 {error && <div className='error-message'>{error}</div>}
                 <input
-                    className='bg-primary-white text-primary-black py-4 px-2.5 rounded shadow-md'
+                    className='bg-primary-white text-primary-black py-4 px-2.5 rounded shadow-md focus:outline-none'
                     name='email'
                     type='email'
                     value={credentials.email}
@@ -45,7 +45,7 @@ export default function LoginForm() {
                     required
                 />
                 <input
-                    className='bg-primary-white text-primary-black py-4 px-2.5 rounded shadow-md'
+                    className='bg-primary-white text-primary-black py-4 px-2.5 rounded shadow-md focus:outline-none'
                     name='password'
                     type='password'
                     value={credentials.password}
@@ -76,7 +76,7 @@ export default function LoginForm() {
                             Logging in...
                         </div>
                     ) : (
-                        'Log in'
+                        'Log In'
                     )}
                 </button>
             </form>

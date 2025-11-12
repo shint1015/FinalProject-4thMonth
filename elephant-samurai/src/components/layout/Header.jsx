@@ -94,7 +94,7 @@ export default function Header() {
                     <>
                         <Link to='/login'>
                             <button className='button border border-primary-yellow text-primary-yellow hover:bg-primary-yellow hover:text-primary-black py-2 px-4 rounded tracking-wider sm:block hidden'>
-                                Log in
+                                Log In
                             </button>
                         </Link>
                     </>
@@ -190,7 +190,7 @@ export default function Header() {
                                 onClick={toggleMobileMenu}
                                 className='text-primary-white hover:text-primary-yellow text-center'
                             >
-                                Log in
+                                Log In
                             </Link>
                         </li>
                     )}
