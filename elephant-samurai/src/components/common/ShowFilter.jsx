@@ -32,7 +32,7 @@ export default function ShowFilter({
       </div>
 
       {/* Filter buttons */}
-      <div className="flex gap-3 md:gap-4 justify-end w-full md:w-auto">
+      <div className="flex gap-1 lg:gap-1 justify-end w-full lg:w-auto">
         {/* Date */}
         <div className="relative">
           <button
@@ -40,7 +40,7 @@ export default function ShowFilter({
               setIsDateOpen(!isDateOpen);
               setIsCategoryOpen(false);
             }}
-            className="flex items-center justify-between border border-primary-yellow text-white rounded-[5%] px-4 py-2 w-28 sm:w-32 text-sm font-dm-sans hover:bg-secondary-yellow hover:text-primary-black transition"
+            className="flex items-center justify-between border border-primary-yellow text-white rounded-[5%] px-4 py-2 lg:w-21  text-sm font-dm-sans hover:bg-secondary-yellow hover:text-primary-black transition"
           >
             <span>{dateFilter ? dateFilter : "Date"}</span>
             <img
@@ -51,7 +51,7 @@ export default function ShowFilter({
           </button>
 
           {isDateOpen && (
-            <div className="absolute top[-2%] right-0 bg-primary-black border border-primary-yellow p-3 z-50 w-28 sm:w-32 flex flex-col gap-2">
+            <div className="absolute top[-2%] right-0 bg-primary-black border border-primary-yellow p-3 z-50 w-25 sm:w-32 flex flex-col gap-2">
               <input
                 type="date"
                 value={dateFilter}
@@ -78,7 +78,7 @@ export default function ShowFilter({
               setIsCategoryOpen(!isCategoryOpen);
               setIsDateOpen(false);
             }}
-            className="flex items-center justify-between border border-primary-yellow text-primary-white rounded-[5%] px-4 py-2 w-36 sm:w-40 text-sm font-dm-sans hover:bg-[#E8E357] hover:text-black transition"
+            className="flex items-center justify-between border border-primary-yellow text-primary-white rounded-[5%] px-4 py-2 w-25 sm:w-32 text-sm font-dm-sans hover:bg-[#E8E357] hover:text-black transition"
           >
             <span>{categoryFilter || "Categories"}</span>
             <img
