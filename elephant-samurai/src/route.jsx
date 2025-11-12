@@ -58,9 +58,15 @@ const loginRoute = createRoute({
     component: () => <LoginPage />,
 })
 
-const PaymentRoute = createRoute({
+const selectingSeatRoute = createRoute({
     getParentRoute: () => rootRoute,
-    path: '/Payment',
+    path: '/seatselecting',
+    component: () => <SelectingSeat/>,
+})
+
+const paymentRoute = createRoute({
+    getParentRoute: () => rootRoute,
+    path: '/payment',
     component: () => <Payment/>,
 })
 
@@ -72,7 +78,8 @@ const routeTree = rootRoute.addChildren([
     showRoute,
     showDetailRoute,
     profileRoute,
-    PaymentRoute
+    selectingSeatRoute,
+    paymentRoute
 ])
 
 export const router = createRouter({
