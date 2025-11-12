@@ -68,7 +68,7 @@ export default function ShowPage() {
       />
 
       {/* カード一覧 */}
-      <section className="grid grid-cols-1 lg:grid-cols-4 gap-8 lg:w-5/6 mx-auto">
+      <section className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:w-5/6 mx-auto">
         {visibleShows.length > 0 ? (
           visibleShows.map((show) => <ShowCard key={show.id} show={show} />)
         ) : (
@@ -83,7 +83,7 @@ export default function ShowPage() {
         <div className="text-center mt-10">
           <button
             onClick={handleViewMore}
-            className="border border-[#E8E357] text-body text-primary-yellow font-dm-sans px-6 py-2 rounded-md hover:bg-secondary-yellow hover:text-black transition"
+            className="border border-primary-yellow text-body text-primary-yellow font-dm-sans px-6 py-2 rounded-md hover:bg-secondary-yellow hover:text-black transition"
           >
             View More
           </button>

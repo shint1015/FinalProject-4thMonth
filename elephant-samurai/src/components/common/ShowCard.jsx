@@ -29,7 +29,7 @@ export default function ShowCard({ show }) {
                     params={{ showId: show.id }}
                     className="block"
                 >
-                    <button className="bg-primary-yellow text-black font-dm-sans py-2 px-4 rounded-md w-full hover:bg-yellow-300 transition">
+                    <button className="bg-primary-yellow text-black font-dm-sans py-2 px-4 rounded-md w-full hover:bg-secondary-yellow transition">
                         Buy Tickets
                     </button>
                 </Link>
