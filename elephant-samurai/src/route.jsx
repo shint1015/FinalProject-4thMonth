@@ -16,6 +16,7 @@ import Profile from '@/pages/Profile.jsx'
 import MyTickets from '@/pages/MyTicket.jsx'
 import ProfileForm from '@/pages/ProfileForm.jsx'
 import SelectingSeat from '@/pages/SelectingSeat.jsx'
+import Payment from '@/pages/Payment.jsx'
 
 // import { useAuth } from '@/hook/useAuth'
 
@@ -111,11 +112,11 @@ export const selectingSeatRoute = createRoute({
 //     component: () => <SelectingSeat/>,
 // })
 
-// const paymentRoute = createRoute({
-//     getParentRoute: () => rootRoute,
-//     path: '/payment',
-//     component: () => <Payment/>,
-// })
+const PaymentRoute = createRoute({
+    getParentRoute: () => rootRoute,
+    path: '/Payment',
+    component: () => <Payment/>,
+})
 
 const routeTree = rootRoute.addChildren([
     indexRoute,
