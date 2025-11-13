@@ -8,11 +8,10 @@ import {
 import Layout from './Layout.jsx'
 import Home from '@/pages/Home.jsx'
 import About from '@/pages/About.jsx'
-// import ContactUS from '.@/pages/ContactUs.jsx'
+import ContactUS from '@/pages/ContactUs.jsx'
 import LoginPage from '@/pages/auth/LoginPage.jsx'
 import ShowPage from '@/pages/ShowPage.jsx'
-import Detail from '@/pages/Detail.jsx' 
-import Profile from '@/pages/Profile.jsx'
+import Detail from '@/pages/Detail.jsx'
 
 // import { useAuth } from '@/hook/useAuth'
 
@@ -54,20 +53,7 @@ export const showDetailRoute = createRoute({
     getParentRoute: () => rootRoute,
     path: '/show/$showId',
     component: () => <Detail />,
-});
-
-export const profileRoute = createRoute({
-    getParentRoute: () => rootRoute,
-    path: '/profile',
-    component: () => <Profile />,
-});
-
-export const myTicketsRoute = createRoute({
-  getParentRoute: () => profileRoute,
-  path: '/mytickets',
-  component: () => <MyTickets />,
 })
-
 
 const loginRoute = createRoute({
     getParentRoute: () => rootRoute,
@@ -115,7 +101,6 @@ const routeTree = rootRoute.addChildren([
     loginRoute,
     showRoute,
     showDetailRoute,
-    profileRoute.addChildren([myTicketsRoute])
 ])
 
 export const router = createRouter({
