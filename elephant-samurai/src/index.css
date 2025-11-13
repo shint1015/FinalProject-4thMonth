@@ -12,6 +12,7 @@
     --font-climate-crisis: 'Climate Crisis', sans-serif;
     --font-dm-sans: 'DM Sans', sans-serif;
     --bg-history: url('./src/assets/img/homepage_history.png');
+    --detailTitle-weight: 700;
 }
 
 @layer base {
@@ -57,5 +58,8 @@
 
     .text-detail {
         @apply font-dm-sans text-[0.625rem] sm:text-[0.75rem] lg:text-[1rem];
+    }
+    input[type='date']::-webkit-calendar-picker-indicator {
+        @apply absolute w-full h-full top-0 left-0 right-0 bottom-0 opacity-0 cursor-pointer;
     }
 }

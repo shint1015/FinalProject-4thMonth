@@ -6,10 +6,13 @@ import {
     HeadContent,
 } from '@tanstack/react-router'
 import Layout from './Layout.jsx'
-import Home from './pages/Home.jsx'
-import About from './pages/About.jsx'
-import ContactUS from './pages/ContactUs.jsx'
+import Home from '@/pages/Home.jsx'
+import About from '@/pages/About.jsx'
+import ContactUS from '.@/pages/ContactUs.jsx'
 import LoginPage from '@/pages/auth/LoginPage.jsx'
+import ShowPage from '@/pages/ShowPage.jsx'
+import Detail from '@/pages/Detail.jsx' 
+
 const rootRoute = createRootRoute({
     component: () => (
         <Layout>
@@ -25,11 +28,6 @@ const indexRoute = createRoute({
     component: () => <Home />,
 })
 
-const testRoute = createRoute({
-    getParentRoute: () => rootRoute,
-    path: '/test',
-    component: () => <div class='text-white'>Test Page</div>,
-})
 // add routing
 const aboutRoute = createRoute({
     getParentRoute: () => rootRoute,
@@ -42,6 +40,18 @@ const contactUsRoute = createRoute({
     path: '/contact',
     component: () => <ContactUS />,
 })
+const showRoute = createRoute({
+    getParentRoute: () => rootRoute,
+    path: '/shows',
+    component: () => <ShowPage/>,
+})
+
+export const showDetailRoute = createRoute({
+    getParentRoute: () => rootRoute,
+    path: '/show/$showId',
+    component: () => <Detail />,
+});
+
 
 const loginRoute = createRoute({
     getParentRoute: () => rootRoute,
@@ -50,10 +60,11 @@ const loginRoute = createRoute({
 })
 const routeTree = rootRoute.addChildren([
     indexRoute,
-    testRoute,
     aboutRoute,
     contactUsRoute,
     loginRoute,
+    showRoute,
+    showDetailRoute
 ])
 
 export const router = createRouter({
