@@ -8,10 +8,11 @@ import {
 import Layout from './Layout.jsx'
 import Home from '@/pages/Home.jsx'
 import About from '@/pages/About.jsx'
-import ContactUS from '.@/pages/ContactUs.jsx'
+// import ContactUS from '.@/pages/ContactUs.jsx'
 import LoginPage from '@/pages/auth/LoginPage.jsx'
 import ShowPage from '@/pages/ShowPage.jsx'
 import Detail from '@/pages/Detail.jsx' 
+import Profile from '@/pages/Profile.jsx'
 
 const rootRoute = createRootRoute({
     component: () => (
@@ -52,6 +53,12 @@ export const showDetailRoute = createRoute({
     component: () => <Detail />,
 });
 
+export const profileRoute = createRoute({
+    getParentRoute: () => rootRoute,
+    path: '/profile',
+    component: () => <Profile />,
+});
+
 
 const loginRoute = createRoute({
     getParentRoute: () => rootRoute,
@@ -64,7 +71,8 @@ const routeTree = rootRoute.addChildren([
     contactUsRoute,
     loginRoute,
     showRoute,
-    showDetailRoute
+    showDetailRoute,
+    profileRoute
 ])
 
 export const router = createRouter({
