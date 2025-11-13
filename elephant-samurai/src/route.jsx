@@ -14,7 +14,7 @@ import ShowPage from '@/pages/ShowPage.jsx'
 import Detail from '@/pages/Detail.jsx' 
 import Profile from '@/pages/Profile.jsx'
 
-import { useAuth } from '@/hook/useAuth'
+// import { useAuth } from '@/hook/useAuth'
 
 // const navigate = useNavigate()
 const rootRoute = createRootRoute({
@@ -102,11 +102,11 @@ export const selectingSeatRoute = createRoute({
 //     component: () => <SelectingSeat/>,
 // })
 
-const paymentRoute = createRoute({
-    getParentRoute: () => rootRoute,
-    path: '/payment',
-    component: () => <Payment/>,
-})
+// const paymentRoute = createRoute({
+//     getParentRoute: () => rootRoute,
+//     path: '/payment',
+//     component: () => <Payment/>,
+// })
 
 const routeTree = rootRoute.addChildren([
     indexRoute,
