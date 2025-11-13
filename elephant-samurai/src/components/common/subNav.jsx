@@ -17,9 +17,9 @@ export default function SubMenu() {
           <Link
             key={item.name}
             to={item.path}
-            className={`text-body text-primary-white${
+            className={`text-body text-primary-white ${
               isActive
-                ? "border-b-1 border-primary-yellow"
+                ? "border-b-2 border-primary-yellow pb-2"
                 : ""
             }`}
           >
