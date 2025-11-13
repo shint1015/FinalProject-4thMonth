@@ -54,7 +54,13 @@ export const showDetailRoute = createRoute({
     getParentRoute: () => rootRoute,
     path: '/show/$showId',
     component: () => <Detail />,
-})
+});
+
+export const profileRoute = createRoute({
+    getParentRoute: () => rootRoute,
+    path: '/profile',
+    component: () => <Profile />,
+});
 
 const loginRoute = createRoute({
     getParentRoute: () => rootRoute,
