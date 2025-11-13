@@ -3,6 +3,8 @@ import SubMenu from '@/components/common/subNav'
 import { useAuth } from '@/hook/useAuth'
 import { Link, useNavigate } from '@tanstack/react-router'
 
+// call default from API
+
 export default function Profile(){
     const { user, isLoading, isAuthenticated } = useAuth()
     const navigate = useNavigate()
