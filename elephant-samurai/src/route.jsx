@@ -8,11 +8,16 @@ import {
 import Layout from './Layout.jsx'
 import Home from '@/pages/Home.jsx'
 import About from '@/pages/About.jsx'
-import ContactUS from '.@/pages/ContactUs.jsx'
+import ContactUS from '@/pages/ContactUs.jsx'
 import LoginPage from '@/pages/auth/LoginPage.jsx'
 import ShowPage from '@/pages/ShowPage.jsx'
 import Detail from '@/pages/Detail.jsx' 
+import SelectingSeat from '@/pages/SelectingSeat.jsx'
+import Payment from '@/pages/Payment.jsx'
 
+import { useAuth } from '@/hook/useAuth'
+
+// const navigate = useNavigate()
 const rootRoute = createRootRoute({
     component: () => (
         <Layout>
@@ -58,13 +63,49 @@ const loginRoute = createRoute({
     path: '/login',
     component: () => <LoginPage />,
 })
+
+export const selectingSeatRoute = createRoute({
+    getParentRoute: () => rootRoute,
+    path: '/seatselecting/$showId',
+    component: () => <SelectingSeat/>,
+})
+
+// const selectingSeatRoute = createRoute({
+//     getParentRoute: () => rootRoute,
+//     path: '/protected',
+//     beforeLoad: async({location}) => {
+//         const {isAuthenticated} = useAuth();
+//         if (!Authenticated){
+//             throw redirect({
+//                 to: '/login',
+//                 search: {
+//                 // Use the current location to power a redirect after login
+//                 // (Do not use `router.state.resolvedLocation` as it can
+//                 // potentially lag behind the actual current location)
+//                 redirect: location.href,
+//                 },
+//             })
+//         }
+//         return null;
+//     },
+//     component: () => <SelectingSeat/>,
+// })
+
+const paymentRoute = createRoute({
+    getParentRoute: () => rootRoute,
+    path: '/payment',
+    component: () => <Payment/>,
+})
+
 const routeTree = rootRoute.addChildren([
     indexRoute,
     aboutRoute,
     contactUsRoute,
     loginRoute,
     showRoute,
-    showDetailRoute
+    showDetailRoute,
+    selectingSeatRoute,
+    paymentRoute
 ])
 
 export const router = createRouter({
