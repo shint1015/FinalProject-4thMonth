@@ -35,7 +35,9 @@ export default function Payment(){
             ...reservation,
             paymentInfo,
         };
-        localStorage.setItem("reservation", JSON.stringify(updatedReservation)); //link both ticket + payment to dashboard
+        const oldTicket = JSON.parse(localStorage.getItem("reservations")) || []; // make it array so can add more
+        const updatedTickets = [...oldTicket, updatedReservation]; 
+        localStorage.setItem("reservations", JSON.stringify(updatedTickets)); // will add all ticket and not replace
         navigate({ to:"/profile/mytickets"});
     }
 
