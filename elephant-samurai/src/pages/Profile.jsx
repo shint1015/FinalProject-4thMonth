@@ -1,38 +1,31 @@
-import { useState, useEffect } from 'react';
-import SubMenu from '../components/common/subNav'
-import mockAPI from '../mock/authApi'
-import checkMark from '../assets/icon/CheckCircle_Black.svg'
+import { useState } from 'react';
+import SubMenu from '@/components/common/subNav'
+import { useAuth } from '@/hook/useAuth'
+import checkMark from '@/assets/icon/CheckCircle_white.svg'
+import { Link, useNavigate } from '@tanstack/react-router'
 
 export default function Profile(){
-    const [profile, setProfile] = useState(null);
-    const [loading, setLoading] = useState(true);
     const [popUp, setPopUP] = useState(false);
+    const { user, isLoading, isAuthenticated, updateProfile } = useAuth()
+    const navigate = useNavigate()
+    const [inputUser, setInputUser] = useState({ ...user });
 
-    useEffect(() => {
-    const token = localStorage.getItem("token"); 
-    if (!token) {
-      setLoading(false);
-      return;
-    }
-    mockAPI.validateToken(token).then(res => {
-      if (res.valid) {
-        setProfile(res.user); 
-      }
-      setLoading(false);
-    });
-    }, []);
-    if (loading) return <p className="text-body text-primary-white">Loading...</p>;
-    if (!profile)
-        return <p className="text-body text-primary-white">No user logged in.</p>;
-    
-    // for button & popup
+    // for popup text
     const handleSubmit = (e) => {
         e.preventDefault();
-        setPopUP(true);
-        setTimeout(()=>{
-            setPopUP(false)
-        }, 3000)
+        updateProfile(inputUser)
+        setPopUP(true)
     };
+
+    // wait until this page get user info
+    if (isLoading) {
+        return <>loading...</>
+    }
+    // if user dont login, redirect to top page
+    if (!isAuthenticated) {
+        navigate({ to: '/' })
+    }
+
     return (
         <>
         <div className='px-[2rem] sm:px-[3rem] lg:px-[5rem]'>
@@ -43,46 +36,44 @@ export default function Profile(){
                 <div>
                     <p className='text-subbody text-dark-gray'>First Name</p>
                     <input type="text" 
-                    value={profile.name}
-                    onInput={(e) => setProfile({ ...profile, displayName: e.target.value })}
+                    value={inputUser.name || user.name}
+                    onInput={(e) => setInputUser(prev => ({ ...prev, name: e.target.value }))}
                     className="bg-primary-white border-none placeholder-dark-grey text-black text-subbody focus:outline-none p-[1rem] rounded-[4px] w-full lg:w-1/3"
                     />
                 </div>
                 <div>
                     <p className='text-subbody text-dark-gray'>Last Name</p>
                     <input type="text" 
-                    value={profile.lastName}
-                    onInput={(e) => setProfile({ ...profile, lastName: e.target.value })}
+                    value={inputUser.lastName || user.lastName}
+                    onInput={(e) => setInputUser(prev => ({ ...prev, lastName: e.target.value }))}
                     className="bg-primary-white border-none placeholder-dark-grey text-black text-subbody focus:outline-none p-[1rem] rounded-[4px] w-full lg:w-1/3"
                     />
                 </div>    
                 <div>
                     <p className='text-subbody text-dark-gray'>Email</p>
                     <input type="text" 
-                    value={profile.email} 
-                    onInput={(e) => setProfile({ ...profile, email: e.target.value })}
+                    value={inputUser.email || user.email} 
+                    onInput={(e) => setInputUser(prev => ({ ...prev, email: e.target.value }))}
                     className="bg-primary-white border-none placeholder-dark-grey text-black text-subbody focus:outline-none p-[1rem] rounded-[4px] w-full lg:w-1/3"
                     />
                 </div> 
                 <div>
                     <p className='text-subbody text-dark-gray'>Password</p>
                     <input type="text" 
-                    placeholder="••••••••" // should be not show
-                    className="bg-primary-white border-none placeholder-dark-grey text-black text-subbody focus:outline-none p-[1rem] rounded-[4px] w-full lg:w-1/3"
+                    value="••••••••" // should be not show
+                    className="bg-primary-white border-none placeholder-dark-grey text-black text-subbody focus:outline-none p-[1rem] rounded-[4px] w-full lg:w-1/3 mb-6"
                     />
-                </div>   
-                <button type="submit" className="bg-primary-yellow text-black py-3 px-6 my-6 rounded hover:bg-secondary-yellow text-subbody">Update Profile</button>
-            </form>     
+                </div>
+              {/* pop up */}
+              {popUp && (
+                <div className='flex flex-row gap-2 mb-2'>
+                  <img src={checkMark}/>
+                  <p className="text-primary-white text-body">Your profile has been changed!</p>
+                </div>
+            )}                    
+                <button type="submit" className="bg-primary-yellow text-black py-3 px-6 mb-8 rounded hover:bg-secondary-yellow text-subbody">Update Profile</button>
+            </form>             
         </div>
-        {/* pop up */}
-        {popUp && (
-        <div className="flex items-center justify-center">
-          <div className="bg-primary-white">
-            <img src={checkMark}/>
-            <p className="text-primary-black">Your profile has been changed!</p>
-          </div>
-        </div>
-      )}
         </>
     )
 }
