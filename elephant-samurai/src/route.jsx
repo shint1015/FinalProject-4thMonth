@@ -4,6 +4,7 @@ import {
     createRouter,
     Outlet,
     HeadContent,
+    NotFoundRoute
 } from '@tanstack/react-router'
 import Layout from './Layout.jsx'
 import Home from './pages/Home.jsx'
@@ -51,9 +52,9 @@ const confirmRoute = createRoute({
     component: () => <Confirm/>,
 })
 
-const NotFoundRoute = createRoute({
+
+const notFoundRoute = new NotFoundRoute({
     getParentRoute: () => rootRoute,
-    path: '/NotFound',
     component: () => <NotFound/>,
 })
 
@@ -63,11 +64,12 @@ const routeTree = rootRoute.addChildren([
     aboutRoute,
     contactUsRoute,
     confirmRoute,
-    NotFoundRoute
 ])
+
 
 export const router = createRouter({
     routeTree,
+    notFoundRoute,
 })
 
 export default router
