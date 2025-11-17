@@ -22,7 +22,7 @@ export default function Header() {
 
     return (
         <header className='flex items-center justify-between py-2 px-4 font-extralight'>
-            <div className='flex items-center justify-between w-[75%] lg:w-[55%] xl:w-[45%]'>
+            <div className='flex items-center justify-between w-[65%] lg:w-[45%] xl:w-[35%]'>
                 <div className='logo-container'>
                     <img src={logo} alt='Elephant Samurai Logo' className='h-7 sm:h-14' />
                 </div>
@@ -58,32 +58,32 @@ export default function Header() {
                             </Link>
                         </li>
                     </ul>
-                    {isAdmin && (
-                        <>
-                            <Menu>
-                                <MenuButton className='inline-flex items-center rounded-md bg-gray-800 px-3 py-1.5 text-sm/6 font-semibold text-primary-white shadow-inner shadow-white/10 focus:not-data-focus:outline-none data-focus:outline data-focus:outline-white data-hover:bg-gray-700 data-open:bg-gray-700'>
-                                    Admin Menu
-                                </MenuButton>
-                                <MenuItems
-                                    transition
-                                    anchor='bottom end'
-                                    className='z-100 w-52 origin-top-right rounded-xl border border-white/5 bg-primary-black p-1 text-sm/6 text-white transition duration-100 ease-out [--anchor-gap:--spacing(1)] focus:outline-none data-closed:scale-95 data-closed:opacity-0'
-                                >
-                                    {adminUrls.map(link => (
-                                        <MenuItem
-                                            key={link.href}
-                                            className='text-right block data-focus:bg-secondary-yellow data-focus:text-primary-black px-3 py-2'
-                                        >
-                                            <Link to={link.href}>{link.label}</Link>
-                                        </MenuItem>
-                                    ))}
-                                </MenuItems>
-                            </Menu>
-                        </>
-                    )}
                 </nav>
             </div>
-            <div>
+            <div className='flex'>
+                {isAdmin && (
+                    <>
+                        <Menu>
+                            <MenuButton className='inline-flex items-center rounded-md bg-gray-800 px-3 py-1.5 text-sm/6 font-semibold text-primary-white shadow-inner shadow-white/10 focus:not-data-focus:outline-none data-focus:outline data-focus:outline-white data-hover:bg-gray-700 data-open:bg-gray-700'>
+                                Admin Menu
+                            </MenuButton>
+                            <MenuItems
+                                transition
+                                anchor='bottom end'
+                                className='z-100 w-52 origin-top-right rounded-xl border border-white/5 bg-primary-black p-1 text-sm/6 text-primary-white transition duration-100 ease-out [--anchor-gap:--spacing(1)] focus:outline-none data-closed:scale-95 data-closed:opacity-0'
+                            >
+                                {adminUrls.map(link => (
+                                    <MenuItem
+                                        key={link.href}
+                                        className='text-right block text-primary-white data-focus:bg-white/5 data-focus:outline-hidden px-3 py-2'
+                                    >
+                                        <Link to={link.href}>{link.label}</Link>
+                                    </MenuItem>
+                                ))}
+                            </MenuItems>
+                        </Menu>
+                    </>
+                )}
                 {isAuthenticated && user ? (
                     <>
                         {/* Profile dropdown */}
@@ -131,7 +131,11 @@ export default function Header() {
                         </Link>
                     </>
                 )}
-                <button id='hamburger-menu' className='sm:hidden block' onClick={toggleMobileMenu}>
+                <button
+                    id='hamburger-menu'
+                    className='sm:hidden block ml-4'
+                    onClick={toggleMobileMenu}
+                >
                     <img
                         src={isMobileMenuOpen ? xmarkIcon : hamburgerMenuIcon}
                         alt='Menu'
