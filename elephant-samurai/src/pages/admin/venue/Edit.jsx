@@ -161,7 +161,7 @@ export default function VenueEdit() {
                     <button
                         type='button'
                         onClick={() => navigate({ to: '/admin/venue/list' })}
-                        className='inline-flex items-center gap-2 px-4 py-2 rounded border border-gray-300 text-gray-700 hover:bg-gray-100'
+                        className='inline-flex items-center gap-2 px-4 py-2 rounded border border-primary-yellow text-primary-yellow hover:bg-primary-yellow hover:text-primary-black'
                     >
                         Cancel
                     </button>

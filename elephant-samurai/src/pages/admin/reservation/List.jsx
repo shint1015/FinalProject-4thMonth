@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { Link } from '@tanstack/react-router'
 import { Th, Td } from '@/components/admin/Table.jsx'
+import DeleteIcon from '@/components/icons/DeleteIcon.jsx'
 
 function makeId(r) {
     return `${r.event_id}:${r.seat_id}`
@@ -167,16 +168,7 @@ export default function ReservationList() {
                                             title='Delete'
                                             aria-label='Delete reservation'
                                         >
-                                            <svg
-                                                xmlns='http://www.w3.org/2000/svg'
-                                                viewBox='0 0 24 24'
-                                                fill='none'
-                                                stroke='currentColor'
-                                                strokeWidth='1.5'
-                                                className='h-4 w-4'
-                                            >
-                                                <path d='M3 6h18M9 6V4h6v2m-8 0h10l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6m4 4v8m6-8v8' />
-                                            </svg>
+                                            <DeleteIcon color='#060606' />
                                         </button>
                                     </div>
                                 </Td>
