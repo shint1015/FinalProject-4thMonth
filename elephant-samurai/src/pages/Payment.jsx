@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react"; 
-import ShowsPhoto from '../assets/img/DisneyOnIce.png'
 import DateIcon from '../assets/icon/Date.svg'
 import TimeIcon from '../assets/icon/Clock.svg'
 import LocationIcon from '../assets/icon/Location.svg'
@@ -36,8 +35,10 @@ export default function Payment(){
             ...reservation,
             paymentInfo,
         };
-        localStorage.setItem("reservation", JSON.stringify(updatedReservation)); //link both ticket + payment to dashboard
-        navigate({ to:"/profile/dashboard"});
+        const oldTicket = JSON.parse(localStorage.getItem("reservations")) || []; // make it array so can add more
+        const updatedTickets = [...oldTicket, updatedReservation]; 
+        localStorage.setItem("reservations", JSON.stringify(updatedTickets)); // will add all ticket and not replace
+        navigate({ to:"/profile/mytickets"});
     }
 
     return (
