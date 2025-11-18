@@ -9,7 +9,7 @@ import Rectangle from '@/assets/img/Rectangle.png'
 export default function Confirm() {
     const [booking, setBooking] = useState(null)
 
-    // 🔥 テスト用：localStorageに予約データが無い場合のみ自動生成
+    
     useEffect(() => {
         const data = localStorage.getItem('reservation');
         if (data) setBooking(JSON.parse(data));
