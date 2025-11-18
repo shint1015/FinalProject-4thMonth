@@ -43,4 +43,5 @@ export default function PaymentDemo() {
             localStorage.setItem('reservation', JSON.stringify(saveReservation))
         }
     }, [reservation])
+    return null
 }
