@@ -148,7 +148,7 @@ export default function Header() {
             <div
                 id='mobile-menu'
                 className={[
-                    'absolute top-10 left-0 w-full bg-primary-black px-4 py-4 sm:hidden z-9999 h-full',
+                    'absolute top-10 left-0 w-full bg-primary-black px-4 py-4 sm:hidden z-[9999] h-full',
                     isMobileMenuOpen === undefined
                         ? 'hidden'
                         : isMobileMenuOpen
