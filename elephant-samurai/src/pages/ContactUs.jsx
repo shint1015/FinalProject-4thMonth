@@ -76,7 +76,7 @@ export default function ContactUS() {
             <form className="mt-4 flex flex-col gap-[1rem]">
                 <input type="text" placeholder="Name" className="bg-primary-white border-none placeholder-dark-grey text-black text-subbody focus:outline-none p-[1rem] rounded"/>
                 <input type="text" placeholder="Email" className="bg-primary-white border-none placeholder-dark-grey text-black text-subbody focus:outline-none p-[1rem] rounded"/>
-                <input type="text" placeholder="Message" className="bg-primary-white border-none placeholder-dark-grey text-black text-subbody focus:outline-none p-[1rem] rounded"/>
+                <textarea type="text" placeholder="Message" className="bg-primary-white border-none placeholder-dark-grey text-black text-subbody focus:outline-none p-[1rem] rounded h-30 resize-none"/>
                 <button className="bg-primary-yellow text-black py-3 px-6 mt-4 rounded hover:bg-secondary-yellow text-subbody">Send</button>
             </form>
 
