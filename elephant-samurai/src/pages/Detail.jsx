@@ -53,28 +53,38 @@ export default function ShowDetail() {
                     <div className='grid grid-cols-1 md:grid-cols-2 lg:gap-y-3 font-dm-sans text-start'>
                         {/* Date*/}
                         <div>
-                            <p className='text-primary-yellow text-subtitle'>Date</p>
-                            <p className='text-body'>{show.date}</p>
+                            <p className='text-primary-yellow text-subtitle mb-1 font-medium '>
+                                Date
+                            </p>
+                            <p className='text-detail text-primary-white'>{show.date}</p>
                         </div>
 
                         {/* Price*/}
-                        <div>
-                            <p className='text-primary-yellow text-subtitle'>Price</p>
-                            <p className='text-body'>{show.pricing_rules[0].price}</p>
+                        <div className='relative ml-[-4em]'>
+                            <p className='text-primary-yellow text-subtitle mb-1 font-medium '>
+                                Price
+                            </p>
+                            <p>{show.pricing_rules[0].price}</p>
                         </div>
                     </div>
 
                     {/* bottom  */}
                     <div className='grid grid-cols-1 lg:grid-cols-2 gap-y-3 font-dm-sans text-start md:text-left'>
                         {/* Time*/}
-                        <div>
-                            <p className='text-primary-yellow text-subtitle'>Time</p>
-                            <p className='text-body'>{show.showTime} </p>
+                        <div className=' relative top-0'>
+                            <p className='text-primary-yellow text-subtitle mb-1 block font-medium'>
+                                Time
+                            </p>
+                            <p className='block '>{show.showTime} </p>
                         </div>
 
-                        <div>
-                            <p className='text-primary-yellow text-subtitle'>Admission Policy</p>
-                            <p className='text-body'>{show.admission_policy.description}</p>
+                        <div className=' relative ml-[-4em]'>
+                            <p className='text-primary-yellow text-subtitle mb-1 font-medium '>
+                                Admission Policy
+                            </p>
+                            <p className='block max-w-[20rem]'>
+                                {show.admission_policy.description}
+                            </p>
                         </div>
                     </div>
 
