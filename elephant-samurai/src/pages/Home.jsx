@@ -26,12 +26,14 @@ export default function Home() {
           </div>
 
           {/* Upcoming event */}
-          <div className="p-[2rem] sm:p-[3rem] lg:p-[5rem]">
+          <div className="p-[2rem] sm:p-[3rem] lg:p-[5rem] text-center">
             <h1 className="text-primary-yellow text-h1">
               UPCOMING EVENT
             </h1>
             <ShowPage/>
-
+            <button className='border border-primary-yellow text-body text-primary-yellow font-dm-sans px-6 py-2 rounded-md hover:bg-primary-yellow hover:text-black'>
+              See All Event
+            </button>
           </div>
 
           {/* History */}

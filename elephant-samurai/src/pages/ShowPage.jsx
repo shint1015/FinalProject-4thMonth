@@ -82,7 +82,7 @@ export default function ShowPage() {
                 <div className='text-center mt-10'>
                     <button
                         onClick={handleViewMore}
-                        className='border border-primary-yellow text-body text-primary-yellow font-dm-sans px-6 py-2 rounded-md hover:bg-secondary-yellow hover:text-black transition'
+                        className='border border-primary-yellow text-body text-primary-yellow font-dm-sans px-6 py-2 rounded-md hover:bg-primary-yellow hover:text-black transition'
                     >
                         View More
                     </button>
