@@ -1,12 +1,17 @@
 import HeroSectionVideo from "@/assets/video/HeroSection.webm"
 import Location from '@/assets/img/Location.png';
 import ShowPage from './ShowPage'
+import { useNavigate } from '@tanstack/react-router';
 
 function LocationPhoto() {
   return <img src={Location} alt="Location" className="lg:w-[50%]"/>;
 }
 
 export default function Home() {
+    const navigate = useNavigate();
+    const HandleSeeAll = () => {
+      navigate({ to: "/shows" });
+    }
     return (
         <>
             {/* Hero section */}
@@ -26,14 +31,17 @@ export default function Home() {
           </div>
 
           {/* Upcoming event */}
-          <div className="p-[2rem] sm:p-[3rem] lg:p-[5rem] text-center">
+          <div className="p-[2rem] sm:p-[3rem] lg:p-[5rem]">
             <h1 className="text-primary-yellow text-h1">
               UPCOMING EVENT
             </h1>
             <ShowPage/>
-            <button className='border border-primary-yellow text-body text-primary-yellow font-dm-sans px-6 py-2 rounded-md hover:bg-primary-yellow hover:text-black'>
-              See All Event
-            </button>
+            <div className="text-center">
+              <button onClick={HandleSeeAll} 
+                className='border border-primary-yellow text-body text-primary-yellow font-dm-sans px-6 py-2 rounded-md hover:bg-primary-yellow hover:text-black'>
+                See All Event
+              </button>
+            </div>
           </div>
 
           {/* History */}
