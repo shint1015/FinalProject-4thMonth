@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
-import ShowCard from '@/components/common/ShowCard'
-import ShowFilter from '@/components/common/ShowFilter'
+import ShowList from '../components/common/ShowList'
+import ShowFilter from '../components/common/ShowFilter'
 
 export default function ShowPage() {
     const [shows, setShows] = useState([])
@@ -19,8 +19,7 @@ export default function ShowPage() {
             .then(setShows)
             .catch(err => console.error('Error fetching shows:', err))
     }, [])
-
-    // 検索・フィルター
+    // search date category filter
     const filteredShows = shows.filter(show => {
         const lower = searchTerm.toLowerCase()
         const matchSearch =
@@ -37,10 +36,10 @@ export default function ShowPage() {
 
     const categories = [...new Set(shows.map(s => s.category))]
 
-    // ✅ 表示用リスト（visibleCountまで）
+    // list
     const visibleShows = filteredShows.slice(0, visibleCount)
 
-    // ✅ ボタンクリックで表示数を増やす
+    // viewmore
     const handleViewMore = () => {
         setVisibleCount(prev => prev + 6)
     }
@@ -65,17 +64,8 @@ export default function ShowPage() {
                     categories={categories}
                 />
             </div>
-
-            {/* カード一覧 */}
-            <section className='grid grid-cols-2 lg:grid-cols-4 gap-8 mx-auto'>
-                {visibleShows.length > 0 ? (
-                    visibleShows.map(show => <ShowCard key={show.id} show={show} />)
-                ) : (
-                    <p className='col-span-full text-center text-primary-yellow text-detail'>
-                        No shows found.
-                    </p>
-                )}
-            </section>
+            {/* cards */}
+            <ShowList shows={visibleShows} />
 
             {/* View More button */}
             {visibleCount < filteredShows.length && (

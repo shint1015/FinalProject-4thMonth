@@ -33,61 +33,73 @@ export default function ShowDetail() {
     }
 
     return (
-        <div className='bg-primary-black pt-[2em] pb-[3em] flex flex-col justify-center items-center px-6 md:px-10 text-primary-white font-dm-sans'>
-            <div className=' w-full items-center flex flex-col md:flex-row gap-10'>
-                <div className='flex md:self-start justify-center lg:justify-start'>
-                    <img src={show.image_url} alt={show.title} className='w-full h-auto' />
+        <div className='bg-primary-black pt-[2em] pb-[3em] py-50 flex flex-col justify-center items-center px-6 md:px-10 text-primary-white '>
+            <div className=' w-full flex flex-col md:flex-row gap-10 '>
+                <div className='ml-17'>
+                    <img
+                        src={show.image_url}
+                        alt={show.title}
+                        className='w-[22.43vw] h-auto rounded-lg'
+                    />
                 </div>
 
                 {/* title */}
                 <div className='flex-1'>
-                    <h1 className=' text-primary-yellow text-title text-detailTitle-weight tracking-[1%] text-center md:text-left'>
+                    <h1 className='text-primary-yellow font-semibold text-title font-dm-sans tracking-widest mb-1'>
                         {show.title}
                     </h1>
-                    <p className='text-subbody font-dm-sans text-center md:text-left'>
+                    <p className='text-light-gray text-subbody font-dm-sans mb-8'>
                         {show.category}
                     </p>
 
                     {/* top  */}
-                    <div className='grid grid-cols-1 md:grid-cols-2 gap-y-3 font-dm-sans text-center md:text-left'>
+                    <div className='grid grid-cols-2 gap-y-5 font-dm-sans '>
                         {/* Date*/}
                         <div>
-                            <p className='text-primary-yellow text-subtitle'>Date</p>
-                            <p className='text-body'>{show.date}</p>
+                            <p className='text-primary-yellow text-subtitle mb-1 font-medium '>
+                                Date
+                            </p>
+                            <p className='text-detail text-primary-white'>{show.date}</p>
                         </div>
 
                         {/* Price*/}
-                        <div>
-                            <p className='text-primary-yellow text-subtitle'>Price</p>
-                            <p className='text-body'>{show.pricing_rules[0].price}</p>
+                        <div className='relative ml-[-4em]'>
+                            <p className='text-primary-yellow text-subtitle mb-1 font-medium '>
+                                Price
+                            </p>
+                            <p>{show.pricing_rules[0].price}</p>
                         </div>
                     </div>
 
                     {/* bottom  */}
-                    <div className='grid grid-cols-1 lg:grid-cols-2 gap-y-3 font-dm-sans text-center md:text-left'>
+                    <div className='grid grid-cols-2 gap-y-5 font-dm-sans mt-5'>
                         {/* Time*/}
-                        <div>
-                            <p className='text-primary-yellow text-subtitle'>Time</p>
-                            <p className='text-body'>{show.showTime} </p>
+                        <div className=' relative top-0'>
+                            <p className='text-primary-yellow text-subtitle mb-1 block font-medium'>
+                                Time
+                            </p>
+                            <p className='block '>{show.showTime} </p>
                         </div>
 
-                        <div>
-                            <p className='text-primary-yellow text-subtitle'>Admission Policy</p>
-                            <p className='text-body'>{show.admission_policy.description}</p>
+                        <div className=' relative ml-[-4em]'>
+                            <p className='text-primary-yellow text-subtitle mb-1 font-medium '>
+                                Admission Policy
+                            </p>
+                            <p className='block max-w-[20rem]'>
+                                {show.admission_policy.description}
+                            </p>
                         </div>
                     </div>
 
                     {/* botton */}
-                    <div className='flex justify-center lg:justify-start'>
-                        <button className='w-[50%] mt-2 lg:w-[22%] py-3 bg-primary-yellow text-primary-black font-dm-sans rounded-md hover:bg-secondary-yellow transition'>
-                            Select the Seat
-                        </button>
-                    </div>
+                    <button className='mt-5 w-[22%] bg-primary-yellow text-primary-black  font-dm-sans py-3 px-8 rounded-md hover:bg-secondary-yellow transition'>
+                        Select the Seat
+                    </button>
                 </div>
             </div>
 
             {/* description part */}
-            <div className='flex flex-col items-center mt-10 text-detail gap-5'>
+            <div className="flex flex-col items-center mt-16 px-6 font-dm-sans text-primary-white text-detail gap-5 max-w-330">
                 <div>
                     <p>{show.description.summary1}</p>
                 </div>
