@@ -1,6 +1,6 @@
 import HeroSectionVideo from "@/assets/video/HeroSection.webm"
 import Location from '@/assets/img/Location.png';
-import ShowList from '../components/common/ShowList'
+import ShowList from '@/components/common/ShowList'
 import { useNavigate } from '@tanstack/react-router';
 
 function LocationPhoto() {
