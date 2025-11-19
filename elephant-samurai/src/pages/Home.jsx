@@ -1,6 +1,6 @@
 import HeroSectionVideo from "@/assets/video/HeroSection.webm"
 import Location from '@/assets/img/Location.png';
-import ShowPage from './ShowPage'
+import ShowList from '../components/common/ShowList'
 import { useNavigate } from '@tanstack/react-router';
 
 function LocationPhoto() {
@@ -38,7 +38,7 @@ export default function Home() {
             <h1 className="text-primary-yellow text-h1">
               UPCOMING EVENT
             </h1>
-            <ShowPage/>
+            <ShowList/>
             <div className="text-center">
               <button onClick={HandleSeeAll} 
                 className='border border-primary-yellow text-body text-primary-yellow font-dm-sans px-6 py-2 rounded-md hover:bg-primary-yellow hover:text-black'>
