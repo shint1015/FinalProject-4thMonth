@@ -4,11 +4,14 @@ import { Link } from '@tanstack/react-router'
 import { useEffect, useState } from 'react'
 import ShowList from '@/components/common/ShowList'
 
+import { useRouter } from '@tanstack/react-router'
+
 function LocationPhoto() {
     return <img src={Location} alt='Location' className='lg:w-[50%]' />
 }
 
 export default function Home() {
+    const router = useRouter()
     const [shows, setShows] = useState([])
     useEffect(() => {
         fetch('/data/event.json')
@@ -16,6 +19,7 @@ export default function Home() {
             .then(setShows)
             .catch(err => console.error('Error fetching shows:', err))
     }, [])
+
     return (
         <>
             {/* Hero section */}
@@ -38,11 +42,12 @@ export default function Home() {
             {/* Upcoming event */}
             <div className='p-[2rem] sm:p-[3rem] lg:p-[5rem]'>
                 <h1 className='text-primary-yellow text-h1'>UPCOMING EVENT</h1>
-                <ShowList shows={shows} />
+                <ShowList shows={shows.slice(0, 8)} />
 
-                <div className='text-center'>
+                <div className='text-center mt-6'>
                     <Link
                         to='/shows'
+                        onClick={() => router.scroll({ top: 0 })}
                         className='border border-primary-yellow text-body text-primary-yellow font-dm-sans px-6 py-2 rounded-md hover:bg-primary-yellow hover:text-primary-black'
                     >
                         See All Event
