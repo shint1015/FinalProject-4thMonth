@@ -14,8 +14,6 @@ export default function Confirm() {
 
     useEffect(() => {
         const data = localStorage.getItem('reservations')
-        console.log(reservationId)
-        console.log(data)
         const target = JSON.parse(data).find(item => item.reservationId === reservationId)
         if (target) setBooking(target)
     }, [])
