@@ -38,7 +38,7 @@ export default function Home() {
             {/* Upcoming event */}
             <div className='p-[2rem] sm:p-[3rem] lg:p-[5rem]'>
                 <h1 className='text-primary-yellow text-h1'>UPCOMING EVENT</h1>
-                <ShowList shows={shows} />
+                <ShowList shows={shows.slice(0, 8)} />
 
                 <div className='text-center mt-6'>
                     <Link
