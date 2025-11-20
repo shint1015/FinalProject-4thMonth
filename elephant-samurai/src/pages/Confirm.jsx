@@ -29,54 +29,50 @@ export default function Confirm() {
                     <h4 className='mb-4 text-h4 text-primary-yellow'>YOU GOT THE TICKET!</h4>
                 </div>
 
-                <div
-                    id='DetailBox'
-                    className='flex flex-col md:flex-row items-center md:items-start gap-6 md:gap-12 justify-center'
-                >
-                    <div id='eventImage' className='m-0 sm:ml-24'>
+                <div id='DetailBox'
+                    className='flex flex-col md:flex-row items-center  gap-6 md:gap-12 justify-center'>
+                    <div id='eventImage'>
                         <img src={Rectangle} alt='Event' className='w-64 h-auto ' />
                     </div>
 
-                    <div
-                        id='textPart'
-                        className='max-w-lg flex flex-col gap-4 text-center md:text-left mt'
-                    >
+                    <div id='textPart'
+                        className='max-w-lg flex flex-col lg:gap-4 text-left'>
                         {/* <!-- title. text-body text-primary-yellow--> */}
-                        <h2 className='text-body text-primary-yellow mt-12 mb-2'>
+                        <h2 className='text-subtitle lg:text-body text-primary-yellow mb-2'>
                             {booking.showTitle}
                         </h2>
 
                         {/* <!-- date.   from here text-detail text-primary-white font-DM-Sans --> */}
-                        <div className='flex items-center gap-2 justify-center md:justify-start'>
+                        <div className='flex items-center gap-2 justify-start'>
                             <img src={Date} className='w-6 h-6' />
-                            <p className='text-detail text-primary-white'>{booking.showDate}</p>
+                            <p className='text-body lg:text-detail text-primary-white'>{booking.showDate}</p>
                         </div>
 
                         {/* <!--time --> */}
-                        <div className='flex items-center gap-2 justify-center md:justify-start'>
+                        <div className='flex items-center gap-2 justify-start'>
                             <img src={Clock} className='w-6 h-6' />
-                            <p className='text-detail text-primary-white'>{booking.showTime}</p>
+                            <p className='text-body lg:text-detail text-primary-white'>{booking.showTime}</p>
                         </div>
 
                         {/* <!--location--> */}
-                        <div className='flex items-start gap-2 justify-center md:justify-start'>
+                        <div className='flex items-start gap-2 justify-start'>
                             <img src={Location} className='w-6 h-6 mt-1' />
                             <div className='leading-tight'>
-                                <p className='text-detail text-primary-white'>
+                                <p className='text-body lg:text-detail text-primary-white'>
                                     Samurai Elephant Studio Theatre
                                 </p>
 
                                 {/* <!--only here text light-gray--> */}
-                                <p className='text-detail text-light-gray'>
+                                <p className='text-body lg:text-detail text-dark-gray'>
                                     111 Hollywood Street, Vancouver BC 0A0 0A0
                                 </p>
                             </div>
                         </div>
 
                         {/* <!--ticket amount --> */}
-                        <div className='flex items-center gap-2 justify-center md:justify-start'>
+                        <div className='flex items-center gap-2 justify-start'>
                             <img src={Ticket} className='w-6 h-6' />
-                            <p className='text-detail text-primary-white'>
+                            <p className='text-body lg:text-detail text-primary-white'>
                                x {booking.showSelectedSeat.length}
                             </p>
                         </div>
